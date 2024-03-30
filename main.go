@@ -12,6 +12,17 @@ type User struct {
 	createAt  time.Time
 }
 
+// Method of the struct
+func (user User) printUserValue() {
+	fmt.Println("------------------------------")
+	fmt.Println("First Name : ", user.firstName)
+	fmt.Println("Last Name : ", user.lastName)
+	fmt.Println("Age : ", user.age)
+
+	fmt.Println("------------------------------")
+	fmt.Println()
+}
+
 func main() {
 
 	appUser := User{
@@ -23,19 +34,7 @@ func main() {
 
 	appUserCreatedByAnotherWay := User{"Virendra", "Patel", 25, time.Now()}
 
-	printUserValue(appUser)
-	printUserValue(appUserCreatedByAnotherWay)
-
-}
-
-func printUserValue(user User) {
-	fmt.Println("------------------------------")
-	fmt.Println("First Name : ", user.firstName)
-	fmt.Println("Last Name : ", user.lastName)
-	fmt.Println("Age : ", user.age)
-
-	fmt.Println("------------------------------")
-
-	fmt.Println()
+	appUser.printUserValue()
+	appUserCreatedByAnotherWay.printUserValue()
 
 }
