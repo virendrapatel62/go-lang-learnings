@@ -2,47 +2,25 @@ package main
 
 import (
 	"fmt"
-	"time"
+
+	"github.com/app/users"
 )
 
-type User struct {
-	firstName string
-	lastName  string
-	age       int
-	createAt  time.Time
-}
-
 // Method of the struct
-func (user *User) printUserValue() {
-	fmt.Println("------------------------------")
-	fmt.Println("First Name : ", user.firstName)
-	fmt.Println("Last Name : ", user.lastName)
-	fmt.Println("Age : ", user.age)
-
-	fmt.Println("------------------------------")
-	fmt.Println()
-}
-
-func (user *User) clearUserName() {
-	user.firstName = ""
-}
 
 func main() {
 
-	appUser := User{
-		firstName: "Virendra",
-		lastName:  "patel",
-		age:       24,
-		createAt:  time.Now(),
-	}
+	appUser := users.New("Virendra", "patel", 24)
 
-	appUserCreatedByAnotherWay := User{"Virendra", "Patel", 25, time.Now()}
+	appUserCreatedByAnotherWay := users.New("Virendra", "Patel", 25)
 
-	appUser.printUserValue()
-	appUserCreatedByAnotherWay.printUserValue()
+	appUser.PrintUserValue()
+	appUserCreatedByAnotherWay.PrintUserValue()
 
-	appUserCreatedByAnotherWay.clearUserName()
+	fmt.Println(appUser.FirstName)
+
+	appUserCreatedByAnotherWay.ClearUserName()
 	fmt.Println("After clear username")
-	appUserCreatedByAnotherWay.printUserValue()
+	appUserCreatedByAnotherWay.ClearUserName()
 
 }
