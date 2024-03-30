@@ -1,3 +1,3 @@
-module github.com/calculator
+module github.com/app
 
 go 1.22.1
