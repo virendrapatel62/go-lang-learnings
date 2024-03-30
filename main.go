@@ -1,5 +1,33 @@
 package main
 
-func main() {
+import "fmt"
 
+func main() {
+	age := 32 // regular variable
+
+	agePointer := &age
+
+	fmt.Println("Age : ", age)
+
+	// Case 1:
+	// adultYears := getAdultsYear(age)
+	// fmt.Println("Adult Years :", adultYears)
+
+	// Case 2:
+	fmt.Println("Age pointer: ", agePointer)
+	fmt.Println("Age pointer value: ", *agePointer)
+	fmt.Println("Adult value: ", getAdultsYearWithPointer(agePointer))
+
+}
+
+// Case 1:
+// copy of int will be here
+func getAdultsYear(age int) int {
+	return age - 18
+}
+
+// Case 2
+// no copy of int
+func getAdultsYearWithPointer(age *int) int {
+	return *age - 18
 }
