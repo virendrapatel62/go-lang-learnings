@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 )
 
 func printNewLine() {
@@ -15,6 +16,20 @@ const PRINT_TODOS = 3
 const EXIT = 9
 
 var todos []string = []string{"Do somthing", "more work"}
+
+const FILE_NAME = "data.txt"
+
+func writeToTheFile(data []string) {
+	os.WriteFile(FILE_NAME, []byte(strings.Join(data, ",")), 0664)
+
+	fmt.Println("Written to the DB..")
+}
+
+func readFromFile() []string {
+	data, _ := os.ReadFile(FILE_NAME)
+	stringData := string(data)
+	return (strings.Split(stringData, ","))
+}
 
 func printOptions() {
 	fmt.Println("Select an option please 👇")
@@ -38,6 +53,7 @@ func performTask(selectedOption int) {
 			var todoToAdd string
 			fmt.Scan(&todoToAdd)
 			todos = append(todos, todoToAdd)
+			writeToTheFile(todos)
 
 			break
 		}
@@ -50,6 +66,7 @@ func performTask(selectedOption int) {
 			var index = serialNumber - 1
 			todos = append(todos[:index], todos[serialNumber:]...)
 			fmt.Println("Done ✅")
+			writeToTheFile(todos)
 			break
 		}
 
@@ -77,6 +94,8 @@ func performTask(selectedOption int) {
 func main() {
 	fmt.Println("Welcome to my first TODO app in GOLANG 🚀 ")
 	printNewLine()
+
+	todos = readFromFile()
 
 	for true {
 		printOptions()
