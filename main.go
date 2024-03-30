@@ -13,7 +13,7 @@ type User struct {
 }
 
 // Method of the struct
-func (user User) printUserValue() {
+func (user *User) printUserValue() {
 	fmt.Println("------------------------------")
 	fmt.Println("First Name : ", user.firstName)
 	fmt.Println("Last Name : ", user.lastName)
@@ -21,6 +21,10 @@ func (user User) printUserValue() {
 
 	fmt.Println("------------------------------")
 	fmt.Println()
+}
+
+func (user *User) clearUserName() {
+	user.firstName = ""
 }
 
 func main() {
@@ -35,6 +39,10 @@ func main() {
 	appUserCreatedByAnotherWay := User{"Virendra", "Patel", 25, time.Now()}
 
 	appUser.printUserValue()
+	appUserCreatedByAnotherWay.printUserValue()
+
+	appUserCreatedByAnotherWay.clearUserName()
+	fmt.Println("After clear username")
 	appUserCreatedByAnotherWay.printUserValue()
 
 }
