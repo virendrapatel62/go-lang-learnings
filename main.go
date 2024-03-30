@@ -21,7 +21,7 @@ func main() {
 
 	// Case 3:
 
-	getAdultsYearWithPointerManipulation(&age)
+	editAdultsYearWithPointerManipulation(&age)
 
 	fmt.Println("Orignal age value : ", age)
 
@@ -42,6 +42,6 @@ func getAdultsYearWithPointer(age *int) int {
 // Case 3
 // no copy of int
 // manipulating value using pointer
-func getAdultsYearWithPointerManipulation(age *int) {
+func editAdultsYearWithPointerManipulation(age *int) {
 	*age = *age - 18
 }
