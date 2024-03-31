@@ -25,4 +25,14 @@ func main() {
 	fmt.Println(numbers[3:])  // index 3-n
 	fmt.Println(numbers[:4])  // index 0-3
 
+	slice1 := numbers[3:] // doesn't copy the content , just a reference
+
+	fmt.Println("slice 1: ", slice1)
+
+	slice1[1] = 999 // changing slice changes the original data as well.
+
+	fmt.Println("slice 1: ", slice1)
+
+	fmt.Println("numbers: ", numbers)
+
 }
