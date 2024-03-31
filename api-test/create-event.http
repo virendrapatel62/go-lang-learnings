@@ -1,0 +1,9 @@
+POST http://localhost:8080/events
+Content-Type: application/json
+
+{
+    "Name" : "React meetup" ,
+    "Description" : "One react meetup at jabalpur", 
+    "Location" : "Jabalpur" , 
+    "DateTime" : "2022-01-01T15:30:000Z"
+}
