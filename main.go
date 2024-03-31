@@ -23,4 +23,6 @@ func main() {
 	fmt.Println("After clear username")
 	appUserCreatedByAnotherWay.ClearUserName()
 
+	appUser.SaveToFile()
+
 }
